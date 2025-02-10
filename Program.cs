@@ -113,18 +113,27 @@ namespace Wk4Ex3
             Console.WriteLine("Enter a word:");
             word = Console.ReadLine();
 
+            Console.WriteLine("Choose an operation:\n1.Reverse Word\n2.Count Vowels\n3.Check if Palindrome");
+
             while (pass == 0)
             {
-                //tests if input is a number               
-                Console.WriteLine("Choose an operation:\n1.Reverse Word\n2.Count Vowels\n3.Check if Palindrome");
-                choice = Convert.ToInt32(Console.ReadLine());
-                pass++; //adds one to pass, quitting loop
-
-                if (choice > 3)
+                //tests if input is a number
+                try
+                {
+                    choice = Convert.ToInt32(Console.ReadLine());
+                    if (choice >= 1 && choice <= 3)
+                    {
+                        pass++; //adds one to pass, quitting loop
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a vaild number.");
+                    }
+                }               
+                catch (Exception e)
                 {
                     Console.WriteLine("Please enter a vaild number.");
                 }
-                
             }
             
             switch (choice) //tests choice to see which method to use
